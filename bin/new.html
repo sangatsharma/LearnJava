@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Setup
+        const recordCollection = {
+            2548: {
+                albumTitle: 'Slippery When Wet',
+                artist: 'Bon Jovi',
+                tracks: ['Let It Rock', 'You Give Love a Bad Name']
+            },
+            2468: {
+                albumTitle: '1999',
+                artist: 'Prince',
+                tracks: ['1999', 'Little Red Corvette']
+            },
+            1245: {
+                artist: 'Robert Palmer',
+                tracks: []
+            },
+            5439: {
+                albumTitle: 'ABBA Gold'
+            }
+        };
+
+        // Only change code below this line
+        function updateRecords(records, id, prop, value) {
+            if (records[id]) {
+                // first condition
+
+                if (prop == "artist" && value != null) {
+                    // the array is defined and has at least one element
+                    if (typeof records[id].artist !== 'undefined' && records[id].artist.length > 0) {
+                        records[id].artist = value;
+                        return records;
+                    }
+                    else {
+                        records[id].artist = value;
+                        return records;
+                    }
+                }
+                //second condition
+                else if (prop == "tracks" && value != null) {
+                    // the array is defined and has at least one element
+                    if (typeof records[id].tracks !== 'undefined' && records[id].tracks.length > 0) {
+                        records[id].tracks.push(value);
+                        return records;
+                    }
+                    else {
+                        records[id].tracks = [];
+                        records[id].tracks.push(value);
+                        return records;
+                    }
+                }
+                else { return "Wrong data entered." }
+            }
+        }
+            console.log(updateRecords(recordCollection, 5439, 'artist', 'sangat'));
+    </script>
+</body>
+
+</html>
